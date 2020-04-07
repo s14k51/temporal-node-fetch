@@ -24,7 +24,7 @@ Makes a `HTTP GET` request.
 
 **Returns**
 
-Promise that resolves to a plain json object
+Promise that resolves to a [TemporalResponse](#TemporalResponse) object or rejects with a [TemporalNodeFetchError](#TemporalNodeFetchError)
 
 ```javascript
 const { get } = require('@temporal/node-fetch');
@@ -34,12 +34,37 @@ await get(someURL);
 
 # Options
 
+Options have the following defaults:
+
 ```js
 {
-  timeout: 6000, // default: 6000 ms; same as the timeout option of `node-fetch`
+  timeout: 6000, // same as the timeout option of `node-fetch`
   headers: {}, // custom headers; `Accept: application/json` is already included
   query: {} // query string parameters to be included in the url
+  errorName: 'TemporalNodeFetch' // custom error name
 }
 ```
 
 The `query` parameters are stringified with the node's built-in [querystring](https://nodejs.org/api/querystring.html) module.
+
+# TemporalResponse
+
+This is a plain javascript object literal
+
+```js
+{
+  status: 200, // the HTTP status from the `get` operation
+  data: {} // the json response data from the `get` operation
+}
+```
+
+# TemporalNodeFetchError
+
+This error has the following attributes:
+
+```js
+error.name = 'TemporalNodeFetchError'; // if `errorName` option is 'Test', then this becomes 'TestError'
+error.message = '<the error message>';
+error.status = 500; // HTTP error status from the `get` operation
+// you can also read the regular `error.stack`
+```
