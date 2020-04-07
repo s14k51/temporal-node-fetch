@@ -1,0 +1,41 @@
+{
+  "name": "@temporal/node-fetch",
+  "description": "Simple async/await based node fetch wrapper",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "author": "s14k51 <s14k51@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s14k51/temporal-node-fetch.git"
+  },
+  "homepage": "https://github.com/s14k51/temporal-node-fetch#readme",
+  "bugs": {
+    "url": "https://github.com/s14k51/temporal-node-fetch/issues"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "rimraf coverage",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-angular": "^8.3.4",
+    "@types/jest": "^25.1.4",
+    "eslint": "^6.8.0",
+    "eslint-config-ruby": "^1.4.2",
+    "husky": "^4.2.3",
+    "jest": "^25.2.4",
+    "jest-preset-ruby": "^1.0.0",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=10.16.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
